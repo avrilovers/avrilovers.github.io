@@ -350,105 +350,13 @@
 <blockquote>
 <p>$ npm install hexo-deployer-git –save<br>$ hexo generate<br>$ hexo deploy</p>
 </blockquote>
-<p>deploy过程需要验证你的账号，即github注册的账号名(eg. avrilovers) 和密码，即github账号的密码。<br>此时，你可以通过<a href="http://avrilovers.github.io访问你的博客了。" target="_blank" rel="external">http://avrilovers.github.io访问你的博客了。</a></p>
+<p>deploy过程需要验证你的账号，即github注册的账号名(eg. avrilovers) 和密码，即github账号的密码。<br>此时，你可以通过<a href="http://avrilovers.github.io" target="_blank" rel="external">http://avrilovers.github.io</a> 访问你的博客了。</p>
 <h2 id="u57DF_u540D_u6CE8_u518C"><a href="#u57DF_u540D_u6CE8_u518C" class="headerlink" title="域名注册"></a>域名注册</h2><p>搭建个性化博客，当然要有个属于自己的域名了，这里以万网注册为例，登录网站 <a href="http://wanwang.aliyun.com/domain/?spm=5176.1830550.1020.3.wzus2p" target="_blank" rel="external">万网</a> 查询你想要的域名是否注册过，没有人购买的话就果断把它收入囊中吧。<br>注册了域名，想要通过这个域名直接跳转到github pages博客上，需要进行域名的解析，所以我们要在万网建立一个CNAME纪录来帮我们做一个域名跳转：<code>avrilovers.com -&gt; avrilovers.github.io, www.avrilovers.com -&gt; avrilovers.github.io</code>。添加方法参考这里，添加后可以看到两条记录：<br><img src="/2016/01/29/Hexo-Github-我的博客我做主/004.png" alt="004.png" title=""><br>在github中添加一个CNAME文件，内容填写你购买的域名eg. sxlin.com<br><img src="/2016/01/29/Hexo-Github-我的博客我做主/005.png" alt="005.png" title=""><br><strong>需要注意的是：CNAME文件在下次deploy的时候就被覆盖消失了，需要重新创建，这样就很繁琐，可以通过安装插件实现永久保留</strong><br><code>$ npm install hexo-generator-cname --save</code><br>之后在_config.yml中添加一条</p>
 <blockquote>
 <p>plugins:<br>- hexo-generator-cname </p>
 </blockquote>
 <p><strong>需要注意的是：如果是在github上建立的CNAME文件，需要先clone到本地，然后安装插件，在deploy上去即可。CNAME只允许一个域名地址。</strong></p>
 <h2 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h2><p>你的博客搭建好了吗？万事开头难，前期的安装部署是繁琐了点，后期的便捷绝对值得你去尝试，其实你就是爱折腾，不是吗！今天先简单介绍到这，还有许多丰富的插件扩展等着你去探索。。。</p>
-
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/20/Hello-2016/" itemprop="url">
-                  Hello 2016
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-20T18:49:29+08:00" content="2016-01-20">
-              2016-01-20
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/20/Hello-2016/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/20/Hello-2016/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-              <img src="/2016/01/20/Hello-2016/aoli.jpeg" alt="Happy 2016" title="Happy 2016">
-<p>  Hey, guys.<br>  <strong>Welcome to SxLin!</strong><br>  New Year, new life. Dream like you’ll live forever, live like you’ll die today. Come to join me Pls. Let’s study together and share our outcome.<br>  Thanks.</p>
 
           
         
