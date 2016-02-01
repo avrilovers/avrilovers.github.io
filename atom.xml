@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://sxlin.com/"/>
-  <updated>2016-02-01T05:22:05.147Z</updated>
+  <updated>2016-02-01T06:21:53.635Z</updated>
   <id>http://sxlin.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://sxlin.com/2016/01/29/Hexo-Github-%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%88%91%E5%81%9A%E4%B8%BB/"/>
     <id>http://sxlin.com/2016/01/29/Hexo-Github-我的博客我做主/</id>
     <published>2016-01-29T08:46:43.000Z</published>
-    <updated>2016-02-01T05:22:05.147Z</updated>
+    <updated>2016-02-01T06:21:53.635Z</updated>
     <content type="html"><![CDATA[<img src="/2016/01/29/Hexo-Github-我的博客我做主/001.png" alt="001.png" title="">
 <h2 id="u4E2A_u4EBA_u535A_u5BA2"><a href="#u4E2A_u4EBA_u535A_u5BA2" class="headerlink" title="个人博客"></a>个人博客</h2><p>不爱折腾的程序猿不是个好设计师。一个出色的设计师，必然有自己一块思想的天地（思维怎么能受束缚，不能忍啊啊啊）。能够和志同道合的朋友一起谈天说地，人生快活不就是如此吗！<strong>爱折腾的小伙伴们，还不赶快行动起来！</strong></p>
 <p>下面就是分享我在搭建个人博客的经验，希望对你有所帮助。</p>
@@ -42,7 +42,7 @@
 <blockquote>
 <p>deploy:<br>type: git<br>repository: <a href="https://github.com/avrilovers/avrilovers.github.io.git" target="_blank" rel="external">https://github.com/avrilovers/avrilovers.github.io.git</a><br>branch: master</p>
 </blockquote>
-<p><strong>需要注意的是：冒号后面记得空一格！</strong><br>好了，我们已经基本搭建好了本地博客的框架了，git上输入<code>$ hexo server</code>，然后在浏览器上通过localhost:4000查看效果。</p>
+<p><strong>需要注意的是：冒号后面记得空一格！</strong><br>好了，我们已经基本搭建好了本地博客的框架了，先安装hexo server插件，<code>$ npm install hexo-server --save</code><br>git上输入命令<code>$ hexo server</code>，然后在浏览器上通过 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 查看效果。</p>
 <h2 id="u90E8_u7F72"><a href="#u90E8_u7F72" class="headerlink" title="部署"></a>部署</h2><p>接下来我们需要把我们的成功部署到github上，先安装部署插件，在生成静态页面，最后部署上去。</p>
 <blockquote>
 <p>$ npm install hexo-deployer-git –save<br>$ hexo generate<br>$ hexo deploy</p>
