@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://sxlin.com/"/>
-  <updated>2016-02-01T07:15:29.742Z</updated>
+  <updated>2016-02-05T09:39:51.413Z</updated>
   <id>http://sxlin.com/</id>
   
   <author>
@@ -13,6 +13,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[搭建FreeSWITCH + FusionPBX（WIN系统）]]></title>
+    <link href="http://sxlin.com/2016/02/04/FreeSWITCH-FusionPBX-MX60/"/>
+    <id>http://sxlin.com/2016/02/04/FreeSWITCH-FusionPBX-MX60/</id>
+    <published>2016-02-04T08:30:26.000Z</published>
+    <updated>2016-02-05T09:39:51.413Z</updated>
+    <content type="html"><![CDATA[<p><strong>FusionPBX</strong>　是使用PHP开发的FreeSWITCH GUI。它支持Linux、Windows、BSD、Mac OS X等多种操作系统，并支持PostgreSQL、MySQL、SQLite等数据库。它是通过数据存储到数据库中，并修改本地的XML配置文件实现的。支持无线的分机、IVR、呼叫组、传真、会议、队列、呼叫前传、点击拨号，以及实时呼叫状态显示等诸多特性，更多详情可参考<a href="http://www.fusionpbx.com/" target="_blank" rel="external">官网</a>+<a href="http://wiki.fusionpbx.com/index.php?title=Main_Page" target="_blank" rel="external">WiKi</a> 。</p>
+<p>本篇安装说明是在WIN2008 R2的系统环境下：</p>
+<h2 id="u5F39_u836F_u51C6_u5907_uFF1A"><a href="#u5F39_u836F_u51C6_u5907_uFF1A" class="headerlink" title="弹药准备："></a>弹药准备：</h2><ol>
+<li>FreeSWITCH。官方提供2种安装方式：<a href="http://files.freeswitch.org/windows/installer/" target="_blank" rel="external">安装包</a>和<a href="http://files.freeswitch.org/releases/freeswitch/" target="_blank" rel="external">源代码自编译</a>,  网盘分享个自己编译的freeswitch-1.2.23版本，64位<a href="http://pan.baidu.com/s/1mheYdx2" target="_blank" rel="external">下载</a>, 提取密码：<code>ue5u</code></li>
+<li>FusionPBX。 官网提供了git下载的方式，也可以直接去我的网盘上<a href="http://pan.baidu.com/s/1jGQjkNW" target="_blank" rel="external">下载</a>, 提取密码：<code>926n</code></li>
+<li>WampServer。<a href="http://www.wampserver.com/en/" target="_blank" rel="external">官网</a>上下载对应的系统版本</li>
+</ol>
+<h2 id="u706B_u529B_u5168_u5F00_3A"><a href="#u706B_u529B_u5168_u5F00_3A" class="headerlink" title="火力全开:"></a>火力全开:</h2><h4 id="u5B89_u88C5FreeSWITCH"><a href="#u5B89_u88C5FreeSWITCH" class="headerlink" title="安装FreeSWITCH"></a>安装FreeSWITCH</h4><p>通过安装包来安装，FreeSWITCH默认是安装在C盘的Program Files目录下；从网盘下载的朋友，解压后直接把文件放在C盘根目录下，修改文件名为：FreeSWITCH, 即可。</p>
+<h4 id="u5B89_u88C5WampServer"><a href="#u5B89_u88C5WampServer" class="headerlink" title="安装WampServer"></a>安装WampServer</h4><ul>
+<li>官网上下好对应系统版本的安装包后，安装WampServer，将路径修改到<code>C:\FreeSWITCH\wamp</code> 下，即可。  </li>
+<li>启动WampServer，若图标状态是橙色，则测试80端口是否被占用；  </li>
+<li>检查你的MySQL是不是启动了，占用了WampServer的MySQL，Win键+R输入：<code>services.msc</code> ，进入服务，找到MYSQL ，如果启动，则关掉服务；  </li>
+<li>加载<code>Apache-&gt;Apache modules-&gt;rewrite_module</code>;</li>
+<li>最后重新启动WampServer所以服务，图标为绿色，则正常启动。<img src="/2016/02/04/FreeSWITCH-FusionPBX-MX60/001.png" alt="001.png" title="">
+</li>
+</ul>
+<h4 id="u5B89_u88C5FusionPBX"><a href="#u5B89_u88C5FusionPBX" class="headerlink" title="安装FusionPBX"></a>安装FusionPBX</h4><ol>
+<li>在<code>C:\FreeSWITCH\wamp\www</code>目录下，新建一个名为<code>fusionpbx</code>文件夹，将网盘下载好的copy进去；  <img src="/2016/02/04/FreeSWITCH-FusionPBX-MX60/002.png" alt="002.png" title=""></li>
+<li>修改fusionpbx 的install文件，打开<code>C:\FreeSWITCH\wamp\www\fusionpbx\resources</code>下的<code>install.php</code> ，将安装目录修改到FreeSWITCH的开发目录下;<img src="/2016/02/04/FreeSWITCH-FusionPBX-MX60/003.png" alt="003.png" title=""></li>
+<li><p>MySQL新建数据库和初始化密码。  </p>
+<ul>
+<li>点击WampServer图标-&gt;MySQL-&gt;MySQL console, 在命令窗口初始化账户密码，默认为空，回车；  </li>
+<li>填写密码<code>update user set password = PASSWORD(&#39;此处填密码&#39;) where user = &#39;root&#39;;</code>   </li>
+<li>立刻执行<code>flush privileges;</code>  <img src="/2016/02/04/FreeSWITCH-FusionPBX-MX60/004.png" alt="004.png" title=""> </li>
+<li>还需要在<code>C:\FreeSWITCH\wamp\apps\phpmyadmin4.1.14</code> 下的<code>config.inc.php</code>填写上密码。<img src="/2016/02/04/FreeSWITCH-FusionPBX-MX60/005.png" alt="005.png" title=""></li>
+<li>浏览器输入：<code>http://127.0.0.1/phpmyadmin/</code>，新建一个数据库’fs‘</li>
+</ul>
+</li>
+<li><p>开始安装fusionpbx界面，在浏览器上输入：<code>http://127.0.0.1/fusionpbx/resources/install.php</code>，填写相关信息，如下图：</p>
+<img src="/2016/02/04/FreeSWITCH-FusionPBX-MX60/006.png" alt="006.png" title="">
+<img src="/2016/02/04/FreeSWITCH-FusionPBX-MX60/007.png" alt="007.png" title="">
+<p>看到登录界面了吗？恭喜你初步安装成功了！！！</p>
+<img src="/2016/02/04/FreeSWITCH-FusionPBX-MX60/008.png" alt="008.png" title=""> 
+</li>
+<li><p>进入界面注册分机，发现无法注册，原来是fusionpbx和freeswitch的数据库没有连接上，需要下载<a href="http://pan.baidu.com/s/1mgUjcHa" target="_blank" rel="external">vs2010+ODBC</a>，提取密码：<code>c7ng</code><br>安装好ODBC，添加用户数据源，如图所示：</p>
+<img src="/2016/02/04/FreeSWITCH-FusionPBX-MX60/009.png" alt="009.png" title=""> 
+<img src="/2016/02/04/FreeSWITCH-FusionPBX-MX60/010.png" alt="010.png" title=""> 
+<p>接着，我们需要修改C:\FreeSWITCH\scripts\resources下的config.lua脚本。</p>
+<img src="/2016/02/04/FreeSWITCH-FusionPBX-MX60/011.png" alt="011.png" title="">  
+<h2 id="Game_over"><a href="#Game_over" class="headerlink" title="Game over"></a>Game over</h2><p>大功告成</p>
+</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><strong>FusionPBX</strong>　是使用PHP开发的FreeSWITCH GUI。它支持Linux、Windows、BSD、Mac OS X等多种操作系统，并支持PostgreSQL、MySQL、SQLite等数据库。它是通过数据存储到数据库中，并修改本]]>
+    </summary>
+    
+      <category term="FreeSWITCH, FusionPBX" scheme="http://sxlin.com/tags/FreeSWITCH-FusionPBX/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexo + Github --> 我的博客我做主]]></title>
