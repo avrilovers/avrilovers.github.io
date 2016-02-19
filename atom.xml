@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://sxlin.com/"/>
-  <updated>2016-02-05T09:39:51.413Z</updated>
+  <updated>2016-02-19T01:35:03.217Z</updated>
   <id>http://sxlin.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://sxlin.com/2016/02/04/FreeSWITCH-FusionPBX-MX60/"/>
     <id>http://sxlin.com/2016/02/04/FreeSWITCH-FusionPBX-MX60/</id>
     <published>2016-02-04T08:30:26.000Z</published>
-    <updated>2016-02-05T09:39:51.413Z</updated>
+    <updated>2016-02-19T01:35:03.217Z</updated>
     <content type="html"><![CDATA[<p><strong>FusionPBX</strong>　是使用PHP开发的FreeSWITCH GUI。它支持Linux、Windows、BSD、Mac OS X等多种操作系统，并支持PostgreSQL、MySQL、SQLite等数据库。它是通过数据存储到数据库中，并修改本地的XML配置文件实现的。支持无线的分机、IVR、呼叫组、传真、会议、队列、呼叫前传、点击拨号，以及实时呼叫状态显示等诸多特性，更多详情可参考<a href="http://www.fusionpbx.com/" target="_blank" rel="external">官网</a>+<a href="http://wiki.fusionpbx.com/index.php?title=Main_Page" target="_blank" rel="external">WiKi</a> 。</p>
 <p>本篇安装说明是在WIN2008 R2的系统环境下：</p>
 <h2 id="u5F39_u836F_u51C6_u5907_uFF1A"><a href="#u5F39_u836F_u51C6_u5907_uFF1A" class="headerlink" title="弹药准备："></a>弹药准备：</h2><ol>
@@ -67,7 +67,7 @@
     <![CDATA[<p><strong>FusionPBX</strong>　是使用PHP开发的FreeSWITCH GUI。它支持Linux、Windows、BSD、Mac OS X等多种操作系统，并支持PostgreSQL、MySQL、SQLite等数据库。它是通过数据存储到数据库中，并修改本]]>
     </summary>
     
-      <category term="FreeSWITCH, FusionPBX" scheme="http://sxlin.com/tags/FreeSWITCH-FusionPBX/"/>
+      <category term="FusionPBX" scheme="http://sxlin.com/tags/FusionPBX/"/>
     
   </entry>
   
